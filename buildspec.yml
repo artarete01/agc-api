@@ -1,0 +1,29 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - pip install --upgrade awscli==1.18.17
+      - echo Logging in Docker hub
+      - "docker login --username=\"dubai888\" --password=\"-hk;w-jg0up;s,^ly[\""
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
+  build:
+    commands:
+      - echo Building the Docker image...laolotto
+      - docker build -t laolotto:$CODEBUILD_RESOLVED_SOURCE_VERSION .
+      - docker tag laolotto:$CODEBUILD_RESOLVED_SOURCE_VERSION 104794032405.dkr.ecr.ap-southeast-1.amazonaws.com/laolotto:$CODEBUILD_RESOLVED_SOURCE_VERSION
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 104794032405.dkr.ecr.ap-southeast-1.amazonaws.com/laolotto:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - cp Dockerrun.aws.template.json Dockerrun.aws.json
+      - sed -i "s/<TAG>/$CODEBUILD_RESOLVED_SOURCE_VERSION/" Dockerrun.aws.json
+artifacts:
+  files:
+    - Dockerrun.aws.json
+    - .ebextensions/**/*
+    - .platform/*/*/*

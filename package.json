@@ -1,0 +1,36 @@
+{
+  "name": "agc-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.4.0",
+    "ftp": "^0.3.10",
+    "md5": "^2.3.0",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "node-cron": "^3.0.0",
+    "node-mysql-deadlock-retries": "^2.0.5",
+    "randomstring": "^1.2.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kritchangloh@bitbucket.org/apichat51/api-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/apichat51/api-test#readme"
+}
