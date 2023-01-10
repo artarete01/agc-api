@@ -26,7 +26,6 @@ sale.show_sale_channel = (data, result) => {
     return result(null, response);
   });
 };
-
 sale.insert_sale_channel = (data, result) => {
   console.log(data);
   let obj = {
@@ -45,7 +44,7 @@ sale.insert_sale_channel = (data, result) => {
     create_by: data.create_by,
     update_by: data.update_by,
     is_active: true,
-    sort: "",
+    sort: (data.sort !== null ? data.sort:0),
   };
   console.log(obj);
   connection.query(`insert into distributor set ?`, [obj], (err, res) => {
@@ -82,85 +81,7 @@ sale.update_sale_channel = (data, result) => {
     create_by: data.create_by,
     update_by: data.update_by,
     is_active: true,
-    sort: "",
-  };
-  console.log(obj);
-  connection.query(`update distributor set ? where id = ${data.id}`, [obj], (err, res) => {
-    if (err) {
-      response = {
-        code: 99,
-        message: err,
-      };
-    } else {
-      response = {
-        code: 200,
-        message: "Success",
-        data: res,
-      };
-    }
-    return result(null, response);
-  });
-};
-sale.update_sale_channel = (data, result) => {
-  console.log(data);
-  let obj = {
-    region_id: data.region_id,
-    province_id: data.province_id,
-    image_logo: data.image_logo,
-    name: data.name,
-    address: data.address,
-    map: data.map,
-    phone: data.phone,
-    fax: data.fax,
-    email: data.email,
-    website: data.website,
-    facebook: data.facebook,
-    line: data.line,
-    create_by: data.create_by,
-    update_by: data.update_by,
-    is_active: true,
-    sort: "",
-  };
-  console.log(obj);
-  connection.query(`update distributor set ? where id = ${data.id}`, [obj], (err, res) => {
-    if (err) {
-      response = {
-        code: 99,
-        message: err,
-      };
-    } else {
-      response = {
-        code: 200,
-        message: "Success",
-        data: res,
-      };
-    }
-    return result(null, response);
-  });
-};
-sale.update_sale_channel = (data, result) => {
-  console.log(data);
-  let obj = {
-    region_id: data.region_id,
-    province_id: data.province_id,
-    image_logo: data.image_logo,
-    name: data.name,
-    address: data.address,
-    map: data.map,
-    phone: data.phone,
-    fax: data.fax,
-    email: data.email,
-    website: data.website,
-    facebook: data.facebook,
-    line: data.line,
-    create_by: data.create_by,
-    update_by: data.update_by,
-    update_date: moment
-      .utc(moment.utc().format())
-      .local()
-      .format("YYYY-MM-DD HH:mm:ss"),
-    is_active: true,
-    sort: "",
+    sort: (data.sort !== null ? data.sort:0),
   };
   console.log(obj);
   connection.query(`update distributor set ? where id = ${data.id}`, [obj], (err, res) => {
