@@ -74,29 +74,29 @@ exports.delete_category_product = async (req, rest) => {
     rest.send(res);
   });
 };
-exports.show_findyourglass = async (req, rest) => {
-  product.show_findyourglass(request, async (err, res) => {
+exports.show_product = async (req, rest) => {
+  product.show_product(request, async (err, res) => {
     rest.send(res);
   });
 };
-exports.insert_findyourglass = async (req, rest) => {
+exports.insert_product = async (req, rest) => {
   console.log(req.body);
   var request = req.body.request;
-  product.insert_findyourglass(request, async (err, res) => {
+  product.insert_product(request, async (err, res) => {
     rest.send(res);
   });
 };
-exports.update_findyourglass = async (req, rest) => {
+exports.update_product = async (req, rest) => {
   console.log(req.body);
   var request = req.body.request;
-  product.update_findyourglass(request, async (err, res) => {
+  product.update_product(request, async (err, res) => {
     rest.send(res);
   });
 };
-exports.delete_findyourglass = async (req, rest) => {
+exports.delete_product = async (req, rest) => {
   console.log(req.params.id);
   var request = req.params.id;
-  product.delete_findyourglass(request, async (err, res) => {
+  product.delete_product(request, async (err, res) => {
     rest.send(res);
   });
 };

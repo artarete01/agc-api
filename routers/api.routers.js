@@ -24,10 +24,10 @@ router.get("/show/category_product", product.show_category_product)
 router.post("/insert/category_product", product.insert_category_product)
 router.put("/update/category_product", product.update_category_product)
 router.delete("/delete/category_product/:id", product.delete_category_product)
-router.get("/show/findyourglass", product.show_findyourglass)
-router.post("/insert/findyourglass", product.insert_findyourglass)
-router.put("/update/findyourglass", product.update_findyourglass)
-router.delete("/delete/findyourglass/:id", product.delete_findyourglass)
+router.get("/show/product", product.show_product)
+router.post("/insert/product", product.insert_product)
+router.put("/update/product", product.update_product)
+router.delete("/delete/product/:id", product.delete_product)
 
 // type footprint
 const footprint = require("../controllers/footprint.controllers");

@@ -318,8 +318,8 @@ product.delete_category_product = (data, result) => {
     return result(null, response);
   });
 };
-product.show_findyourglass = (data, result) => {
-  let sql = ` select * from findyourglass_product`;
+product.show_product = (data, result) => {
+  let sql = ` select * from product`;
   // sql += `where dl = 0 order by  create_date DESC`;
   connection.query(sql, (err, res) => {
     if (err) {
@@ -337,7 +337,7 @@ product.show_findyourglass = (data, result) => {
     return result(null, response);
   });
 };
-product.insert_findyourglass = (data, result) => {
+product.insert_product = (data, result) => {
   let obj = {
     ref_type_product_id: data.ref_type_product_id,
     name_th: data.name_th,
@@ -345,23 +345,34 @@ product.insert_findyourglass = (data, result) => {
     model_th: data.model_th,
     model_en: data.model_en,
     recommend: data.recommend,
-    image_logo: data.image_logo,
+    image_findyourglass: data.image_findyourglass,
+    image_compare: data.image_compare,
     type_build: data.type_build,
     type_glass: data.type_glass,
     type_color: data.type_color,
     code_color: data.code_color,
     vlt: data.vlt,
+    vlr_external: data.vlr_external,
+    vlr_internal: data.vlr_internal,
     shgc: data.shgc,
+    det: data.det,
+    er: data.er,
+    ea: data.ea,
+    sc: data.sc,
+    lsg: data.lsg,
+    u_value: data.u_value,
+    rhg: data.rhg,
     protect_1: data.protect_1,
     protect_2: data.protect_2,
     protect_3: data.protect_3,
-    show_more_detail: data.show_more_detail,
+    show_more_detail: data.name_th,
+    glass_thickness: data.name_th,
     create_by: data.create_by,
     update_by: data.update_by,
     is_active: true,
     sort: (data.sort !== null ? data.sort:0),
   };
-  connection.query(`insert into findyourglass_product set ?`, [obj], (err, res) => {
+  connection.query(`insert into product set ?`, [obj], (err, res) => {
     if (err) {
       response = {
         code: 99,
@@ -377,7 +388,7 @@ product.insert_findyourglass = (data, result) => {
     }
   });
 };
-product.update_findyourglass = (data, result) => {
+product.update_product = (data, result) => {
   console.log(data);
   let obj = {
     ref_type_product_id: data.ref_type_product_id,
@@ -386,24 +397,35 @@ product.update_findyourglass = (data, result) => {
     model_th: data.model_th,
     model_en: data.model_en,
     recommend: data.recommend,
-    image_logo: data.image_logo,
+    image_findyourglass: data.image_findyourglass,
+    image_compare: data.image_compare,
     type_build: data.type_build,
     type_glass: data.type_glass,
     type_color: data.type_color,
     code_color: data.code_color,
     vlt: data.vlt,
+    vlr_external: data.vlr_external,
+    vlr_internal: data.vlr_internal,
     shgc: data.shgc,
+    det: data.det,
+    er: data.er,
+    ea: data.ea,
+    sc: data.sc,
+    lsg: data.lsg,
+    u_value: data.u_value,
+    rhg: data.rhg,
     protect_1: data.protect_1,
     protect_2: data.protect_2,
     protect_3: data.protect_3,
-    show_more_detail: data.show_more_detail,
+    show_more_detail: data.name_th,
+    glass_thickness: data.name_th,
     create_by: data.create_by,
     update_by: data.update_by,
     is_active: true,
     sort: (data.sort !== null ? data.sort:0),
   };
   console.log(obj);
-  connection.query(`update findyourglass_product set ? where id = ${data.id}`, [obj], (err, res) => {
+  connection.query(`update product set ? where id = ${data.id}`, [obj], (err, res) => {
     if (err) {
       response = {
         code: 99,
@@ -419,9 +441,9 @@ product.update_findyourglass = (data, result) => {
     return result(null, response);
   });
 };
-product.delete_findyourglass = (data, result) => {
+product.delete_product = (data, result) => {
   console.log(data);
-  connection.query(`delete from findyourglass_product where id = ${data}`, (err, res) => {
+  connection.query(`delete from product where id = ${data}`, (err, res) => {
     if (err) {
       response = {
         code: 99,
