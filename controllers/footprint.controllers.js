@@ -13,7 +13,6 @@ exports.show_footprint = async (req, rest) => {
     rest.send(res);
   });
 };
-
 exports.insert_footprint = async (req, rest) => {
   console.log(req.body);
   var request = req.body.request;
@@ -32,6 +31,32 @@ exports.delete_footprint = async (req, rest) => {
   console.log(req.params.id);
   var request = req.params.id;
   footprint.delete_footprint(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.show_group_footprint = async (req, rest) => {
+  footprint.show_group_footprint(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.insert_group_footprint = async (req, rest) => {
+  console.log(req.body);
+  var request = req.body.request;
+  footprint.insert_group_footprint(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.update_group_footprint = async (req, rest) => {
+  console.log(req.body);
+  var request = req.body.request;
+  footprint.update_group_footprint(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.delete_group_footprint = async (req, rest) => {
+  console.log(req.params.id);
+  var request = req.params.id;
+  footprint.delete_group_footprint(request, async (err, res) => {
     rest.send(res);
   });
 };

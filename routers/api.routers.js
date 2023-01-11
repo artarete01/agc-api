@@ -35,6 +35,10 @@ router.get("/show/footprint", footprint.show_footprint)
 router.post("/insert/footprint", footprint.insert_footprint)
 router.put("/update/footprint", footprint.update_footprint)
 router.delete("/delete/footprint/:id", footprint.delete_footprint)
+router.get("/show/group_footprint", footprint.show_group_footprint)
+router.post("/insert/group_footprint", footprint.insert_group_footprint)
+router.put("/update/group_footprint", footprint.update_group_footprint)
+router.delete("/delete/group_footprint/:id", footprint.delete_group_footprint)
 
 //master data
 const master = require("../controllers/master.controllers");
