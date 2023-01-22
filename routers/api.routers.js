@@ -39,6 +39,12 @@ router.get("/show/group_footprint", footprint.show_group_footprint)
 router.post("/insert/group_footprint", footprint.insert_group_footprint)
 router.put("/update/group_footprint", footprint.update_group_footprint)
 router.delete("/delete/group_footprint/:id", footprint.delete_group_footprint)
+router.get("/show/footprint_detail/:id", footprint.show_footprint_detail)
+
+//new
+const home = require("../controllers/home.controllers");
+router.get("/show/home_banner", home.show_home_banner)
+router.put("/update/home_banner", home.update_home_banner)
 
 //master data
 const master = require("../controllers/master.controllers");

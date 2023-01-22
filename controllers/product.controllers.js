@@ -1,6 +1,5 @@
 const crypto = require("crypto");
 const request = require("request");
-const authenmodel = require("../models/authen.models");
 const connection = require("../config/db")
 const product = require("../models/product.models");
 const moment = require("moment-timezone");

@@ -1,6 +1,5 @@
 const crypto = require("crypto");
 const request = require("request");
-const authenmodel = require("../models/authen.models");
 const connection = require("../config/db")
 const footprint = require("../models/footprint.models");
 const moment = require("moment-timezone");
@@ -57,6 +56,13 @@ exports.delete_group_footprint = async (req, rest) => {
   console.log(req.params.id);
   var request = req.params.id;
   footprint.delete_group_footprint(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.show_footprint_detail = async (req, rest) => {
+  console.log(req.params.id);
+  var request = req.params.id;
+  footprint.show_footprint_detail(request, async (err, res) => {
     rest.send(res);
   });
 };

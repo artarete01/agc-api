@@ -230,5 +230,23 @@ footprint.delete_group_footprint = (data, result) => {
     return result(null, response);
   });
 };
+footprint.show_footprint_detail = (data, result) => {
+  console.log(data);
+  connection.query(`select * from footprint where id = ${data}`, (err, res) => {
+    if (err) {
+      response = {
+        code: 99,
+        message: err,
+      };
+    } else {
+      response = {
+        code: 200,
+        message: "Success",
+        data: res,
+      };
+    }
+    return result(null, response);
+  });
+};
 
 module.exports = footprint;
