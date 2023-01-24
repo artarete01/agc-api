@@ -33,6 +33,11 @@ exports.delete_type_product = async (req, rest) => {
     rest.send(res);
   });
 };
+exports.show_type_product_content_all = async (req, rest) => {
+  product.show_type_product_content_all(request, async (err, res) => {
+    rest.send(res);
+  });
+};
 exports.show_type_product_content = async (req, rest) => {
   console.log(req.params.id);
   var request = req.params.id;

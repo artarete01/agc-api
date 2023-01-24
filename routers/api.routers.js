@@ -18,6 +18,7 @@ router.get("/show/type_product", product.show_type_product)
 router.post("/insert/type_product", product.insert_type_product)
 router.put("/update/type_product", product.update_type_product)
 router.delete("/delete/type_product/:id", product.delete_type_product)
+router.get("/show/type_product_content", product.show_type_product_content_all)
 router.get("/show/type_product_content/:id", product.show_type_product_content)
 router.put("/update/type_product_content", product.update_type_product_content)
 router.get("/show/category_product", product.show_category_product)
@@ -45,6 +46,8 @@ router.get("/show/footprint_detail/:id", footprint.show_footprint_detail)
 const home = require("../controllers/home.controllers");
 router.get("/show/home_banner", home.show_home_banner)
 router.put("/update/home_banner", home.update_home_banner)
+router.get("/show/home_group_product", home.show_home_group_product)
+router.put("/update/home_group_product", home.update_home_group_product)
 
 //master data
 const master = require("../controllers/master.controllers");

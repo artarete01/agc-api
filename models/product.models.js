@@ -61,6 +61,7 @@ product.insert_type_product = (data, result) => {
         feature_list_image_slide: "",
         shade_text_1: "",
         shade_text_2: "",
+        shade_glass: "",
         shade_video: "",
         protect_text_1: "",
         protect_text_2: "",
@@ -156,6 +157,25 @@ product.delete_type_product = (data, result) => {
     return result(null, response);
   });
 };
+product.show_type_product_content_all = (data, result) => {
+  let sql = ` select id,ref_type_product_id,name,banner_text_1,banner_text_2,feature_list_image_vector,feature_header,shade_glass from type_product_content`;
+  // sql += `where dl = 0 order by  create_date DESC`;
+  connection.query(sql, (err, res) => {
+    if (err) {
+      response = {
+        code: 99,
+        message: "Fail",
+      };
+    } else {
+      response = {
+        code: 200,
+        message: "Success",
+        data: res,
+      };
+    }
+    return result(null, response);
+  });
+};
 product.show_type_product_content = (data, result) => {
   console.log(data);
   connection.query(`select * from type_product_content where ref_type_product_id = ${data}`, (err, res) => {
@@ -190,6 +210,7 @@ product.update_type_product_content = (data, result) => {
     feature_list_image_slide: data.feature_list_image_slide,
     shade_text_1: data.shade_text_1,
     shade_text_2: data.shade_text_2,
+    shade_glass: data.shade_glass,
     shade_video: data.shade_video,
     protect_text_1: data.protect_text_1,
     protect_text_2: data.protect_text_2,

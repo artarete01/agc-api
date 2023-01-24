@@ -19,3 +19,15 @@ exports.update_home_banner = async (req, rest) => {
     rest.send(res);
   });
 };
+exports.show_home_group_product = async (req, rest) => {
+  home.show_home_group_product(request, async (err, res) => {
+    rest.send(res);
+  });
+};
+exports.update_home_group_product = async (req, rest) => {
+  console.log(req.body);
+  var request = req.body.request;
+  home.update_home_group_product(request, async (err, res) => {
+    rest.send(res);
+  });
+};
