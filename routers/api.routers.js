@@ -49,6 +49,21 @@ router.put("/update/home_banner", home.update_home_banner)
 router.get("/show/home_group_product", home.show_home_group_product)
 router.put("/update/home_group_product", home.update_home_group_product)
 
+//new
+const sustainability = require("../controllers/sustainability.controllers");
+router.get("/show/sustainability", sustainability.show_sustainability)
+router.post("/insert/sustainability", sustainability.insert_sustainability)
+router.put("/update/sustainability", sustainability.update_sustainability)
+router.delete("/delete/sustainability/:id", sustainability.delete_sustainability)
+router.get("/show/sustainability_content/:id", sustainability.show_sustainability_content)
+router.put("/update/sustainability_content", sustainability.update_sustainability_content)
+router.get("/show/group_sustainability", sustainability.show_group_sustainability)
+router.post("/insert/group_sustainability", sustainability.insert_group_sustainability)
+router.put("/update/group_sustainability", sustainability.update_group_sustainability)
+router.delete("/delete/group_sustainability/:id", sustainability.delete_group_sustainability)
+
+
+
 //master data
 const master = require("../controllers/master.controllers");
 router.get("/master/region", master.show_master_region)

@@ -148,13 +148,24 @@ product.delete_type_product = (data, result) => {
         message: err,
       };
     } else {
-      response = {
-        code: 200,
-        message: "Success",
-        data: res,
-      };
+      connection.query(`delete from type_product_content where ref_type_product_id = ${data}`, (err2, res2) => {
+        console.log(err2);
+        if (err2) {
+          response = {
+            code: 99,
+            message: err2,
+          };
+        } else {
+          response = {
+            code: 200,
+            message: "Success",
+            data: res,
+            data2: res2,
+          };
+          return result(null, response);
+        }
+      });
     }
-    return result(null, response);
   });
 };
 product.show_type_product_content_all = (data, result) => {
