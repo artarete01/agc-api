@@ -42,14 +42,14 @@ router.put("/update/group_footprint", footprint.update_group_footprint)
 router.delete("/delete/group_footprint/:id", footprint.delete_group_footprint)
 router.get("/show/footprint_detail/:id", footprint.show_footprint_detail)
 
-//new
+//home
 const home = require("../controllers/home.controllers");
 router.get("/show/home_banner", home.show_home_banner)
 router.put("/update/home_banner", home.update_home_banner)
 router.get("/show/home_group_product", home.show_home_group_product)
 router.put("/update/home_group_product", home.update_home_group_product)
 
-//new
+//sustainability
 const sustainability = require("../controllers/sustainability.controllers");
 router.get("/show/sustainability", sustainability.show_sustainability)
 router.post("/insert/sustainability", sustainability.insert_sustainability)
@@ -62,6 +62,14 @@ router.post("/insert/group_sustainability", sustainability.insert_group_sustaina
 router.put("/update/group_sustainability", sustainability.update_group_sustainability)
 router.delete("/delete/group_sustainability/:id", sustainability.delete_group_sustainability)
 
+//news
+const news = require("../controllers/news.controllers");
+router.get("/show/news", news.show_news)
+router.post("/insert/news", news.insert_news)
+router.put("/update/news", news.update_news)
+router.delete("/delete/news/:id", news.delete_news)
+router.get("/show/news_content/:id", news.show_news_content)
+router.put("/update/news_content", news.update_news_content)
 
 
 //master data
