@@ -71,6 +71,20 @@ router.delete("/delete/news/:id", news.delete_news)
 router.get("/show/news_content/:id", news.show_news_content)
 router.put("/update/news_content", news.update_news_content)
 
+//technical
+const technical = require("../controllers/technical.controllers");
+router.get("/show/technical", technical.show_technical)
+router.post("/insert/technical", technical.insert_technical)
+router.put("/update/technical", technical.update_technical)
+router.delete("/delete/technical/:id", technical.delete_technical)
+router.get("/show/group_technical", technical.show_group_technical)
+router.post("/insert/group_technical", technical.insert_group_technical)
+router.put("/update/group_technical", technical.update_group_technical)
+router.delete("/delete/group_technical/:id", technical.delete_group_technical)
+router.get("/show/technical_law", technical.show_technical_law)
+router.put("/update/technical_law", technical.update_technical_law)
+
+
 
 //master data
 const master = require("../controllers/master.controllers");
